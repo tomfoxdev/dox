@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dox - Draft Doc</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">D</div>
+          <div class="title">
+            <div class="name">Dox</div>
+            <div class="tagline">Draft doc editor</div>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <span class="control__label">Font</span>
+            <div class="segmented" role="group" aria-label="Font family">
+              <button type="button" class="segmented__btn is-active" data-font="serif">
+                Serif
+              </button>
+              <button type="button" class="segmented__btn" data-font="sans">Sans</button>
+            </div>
+          </div>
+          <div class="control">
+            <span class="control__label">Size</span>
+            <div class="size-control">
+              <input
+                type="range"
+                id="fontSize"
+                min="14"
+                max="32"
+                value="18"
+                step="1"
+                aria-label="Font size"
+              />
+              <output id="fontSizeValue" for="fontSize">18</output>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="sidebar">
+          <div class="sidebar__header">
+            <div>
+              <div class="sidebar__title">Drive</div>
+              <div class="sidebar__path" id="currentPath">Root</div>
+            </div>
+            <button type="button" class="ghost-btn" id="upFolderBtn">Up</button>
+          </div>
+          <div class="sidebar__actions">
+            <button type="button" class="pill-btn" id="newFolderBtn">New folder</button>
+            <button type="button" class="pill-btn" id="newDocBtn">New doc</button>
+          </div>
+          <div class="drive-list" id="driveList"></div>
+        </aside>
+
+        <section class="canvas">
+          <div class="doc-header">
+            <input
+              id="docTitle"
+              class="doc-title-input"
+              type="text"
+              placeholder="Untitled document"
+              aria-label="Document title"
+            />
+            <div class="doc-meta">
+              <span class="doc-status" id="docStatus" data-state="saved">Saved</span>
+              <button type="button" class="primary-btn" id="saveDocBtn">Save</button>
+            </div>
+          </div>
+
+          <div class="paper" id="paper">
+            <div
+              id="editor"
+              class="editor"
+              tabindex="0"
+              role="textbox"
+              aria-multiline="true"
+              aria-label="Document editor"
+              data-placeholder="Start writing your doc..."
+            ></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
